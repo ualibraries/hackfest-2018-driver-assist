@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
+import { KeepAwake } from 'expo';
 
 class GeolocationExample extends Component {
     constructor(props) {
@@ -53,6 +54,7 @@ class GeolocationExample extends Component {
     render() {
         return (
             <View style={{ flexGrow: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: this.checkSpeeding(this.mpsToMph(this.state.speed)) ? 'red' : 'white' }}>
+                <KeepAwake />
                 <Text>Latitude: {this.state.latitude}</Text>
                 <Text>Longitude: {this.state.longitude}</Text>
                 <Text>Speed: {this.mpsToMph(this.state.speed)}</Text>
