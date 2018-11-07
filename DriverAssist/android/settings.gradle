@@ -1,0 +1,3 @@
+rootProject.name = 'DriverAssist'
+
+include ':app'
