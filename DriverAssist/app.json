@@ -1,4 +1,7 @@
 {
   "name": "DriverAssist",
-  "displayName": "DriverAssist"
+  "displayName": "DriverAssist",
+  "expo": {
+    "sdkVersion": "30.0.0"
+  }
 }
