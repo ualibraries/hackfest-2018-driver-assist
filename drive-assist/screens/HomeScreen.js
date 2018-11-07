@@ -19,10 +19,14 @@ class GeolocationExample extends Component {
         return (meters * MILES_PER_METER) * 60 * 60;
     }
 
+    checkSpeeding(mph) {
+        return mph > 45;
+    }
+
     componentDidMount() {
         this.timerID = setInterval(
             () => this.tick(),
-            200
+            1000
         );
     }
 
@@ -48,7 +52,7 @@ class GeolocationExample extends Component {
 
     render() {
         return (
-            <View style={{ flexGrow: 1, alignItems: 'center', justifyContent: 'center' }}>
+            <View style={{ flexGrow: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: this.checkSpeeding(this.mpsToMph(this.state.speed)) ? 'red' : 'white' }}>
                 <Text>Latitude: {this.state.latitude}</Text>
                 <Text>Longitude: {this.state.longitude}</Text>
                 <Text>Speed: {this.mpsToMph(this.state.speed)}</Text>
