@@ -14,6 +14,11 @@ class GeolocationExample extends Component {
         };
     }
 
+    mpsToMph(meters) {
+        const MILES_PER_METER = 0.000621371;
+        return (meters * MILES_PER_METER) * 60 * 60;
+    }
+
     componentDidMount() {
         this.timerID = setInterval(
             () => this.tick(),
@@ -46,7 +51,7 @@ class GeolocationExample extends Component {
             <View style={{ flexGrow: 1, alignItems: 'center', justifyContent: 'center' }}>
                 <Text>Latitude: {this.state.latitude}</Text>
                 <Text>Longitude: {this.state.longitude}</Text>
-                <Text>Speed: {this.state.speed}</Text>
+                <Text>Speed: {this.mpsToMph(this.state.speed)}</Text>
                 <Text>Counter: {this.state.counter}</Text>
                 {this.state.error ? <Text>Error: {this.state.error}</Text> : null}
             </View>
